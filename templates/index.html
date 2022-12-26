@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <style>
+    #hero{
+      margin-top: 20vh;
+    }
+
+    #hero .text{
+      padding-right: 240px;
+    }
+  </style>
+  <div class="container">
+    <div class="row row-cols-1 row-cols-md-2 align-items-center" id="hero">
+      <div class="col text text-light">
+        <h1>
+          Sistem Prediksi Risiko Penyakit Kronis
+        </h1>
+        <p>Prediksi Risiko Penyakit anda secara dini untuk menghindari situasi kesehatan yang berbahaya sebelum terlambat dan meningkatkan kualitas kesehatan dengan penanganan yang tepat</p>
+        <div class="mt-4">
+          <a href="/predict" class="btn btn-dark px-4 fs-uppercase">Mulai Prediksi</a>
+        </div>
+      </div>
+      <div class="col">
+        <img src="{% static 'image\image-hero.png' %}" style="width:100%">
+      </div>
+    </div>
+  </div>
+  <script>
+    if (window.matchMedia('(max-width: 767px)').matches) {
+      $('#hero').attr('style','flex-direction: column-reverse')
+    }else{
+      $('#hero').removeAttr('style')
+    }
+    $( window ).resize(function() {
+      if (window.matchMedia('(max-width: 767px)').matches) {
+        $('#hero').attr('style','flex-direction: column-reverse')
+      }else{
+        $('#hero').removeAttr('style')
+      }
+    });
+  </script>
+{% endblock %}

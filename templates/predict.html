@@ -1,0 +1,219 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <style>
+    #form{
+      margin-block: 10vh;
+    }
+  </style>
+  <div class="container">
+    <form action="/output" method="POST" class="card p-3" id="form">
+      {% csrf_token %}
+      <div class="text-center">
+        <h2>FORM DATA UJI</h2>
+      </div>
+      <div class="row row-cols-1 row-cols-md-2">
+        <div class="col">
+          <div class="mb-3">
+            <label for="Age" class="form-label">Age</label>
+            <input type="number" class="form-control" name="Age" value="42" id="Age" placeholder="Input number">
+          </div>
+          <div class="mb-3">
+            <label for="Gender" class="form-label">Gender</label>
+            <select class="form-select" name="Gender" aria-label="Default select example">
+              <option>Select One</option>
+              <option value="1" selected>Male</option>
+              <option value="0">Female</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="Residence_Type" class="form-label">Residence Type</label>
+            <select class="form-select" name="Residence_Type" aria-label="Default select example">
+              <option>Select One</option>
+              <option value="1" selected>Rural</option>
+              <option value="2">Urban</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="Work_Type" class="form-label">Work Type</label>
+            <select class="form-select" name="Work_Type" aria-label="Default select example">
+              <option>Select One</option>
+              <option value="1">children</option>
+              <option value="2" selected>Goverment job</option>
+              <option value="3">Never worked</option>
+              <option value="4">Private</option>
+              <option value="5">Self Employed</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="Smoking" class="form-label">Smoking Status</label>
+            <select class="form-select" name="Smoking" aria-label="Default select example">
+              <option value="4">Select One</option>
+              <option value="1">formerly smoked</option>
+              <option value="2" selected>never smoked</option>
+              <option value="3">smokes</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="BMI" class="form-label">BMI</label>
+            <input type="number" class="form-control" name="BMI" value="36.6" id="BMI" placeholder="Input number">
+          </div>
+          <div class="mb-3">
+            <label for="Chest_Pain_Type" class="form-label">Chest Pain</label>
+            <select class="form-select" name="Chest_Pain_Type" aria-label="Default select example">
+              <option>Select One</option>
+              <option value="1">typical angina</option>
+              <option value="2" selected>atypical angina</option>
+              <option value="3">non-anginal pain</option>
+              <option value="4">asymptomatic</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="Trestbps" class="form-label">Trestbps</label>
+            <input type="number" class="form-control" name="Trestbps" value="110" id="Trestbps" placeholder="Input number">
+          </div>
+          <div class="mb-3">
+            <label for="Cholesterol" class="form-label">Cholesterol</label>
+            <input type="number" class="form-control" name="Cholesterol" value="300" id="Cholesterol" placeholder="Input number">
+          </div>
+          <div class="mb-3">
+            <label for="Result_ECG" class="form-label">Result ECG</label>
+            <select class="form-select" name="Result_ECG" aria-label="Default select example">
+              <option>Select One</option>
+              <option value="0">normal</option>
+              <option value="1">having ST-T wave abnormality (T wave inversions and/or ST elevation or depression of > 0.05 mV)</option>
+              <option value="2" selected>showing probable or definite left ventricular hypertrophy by Estes' criteria</option>
+            </select>
+          </div>
+        </div>
+        <div class="col">
+          <div class="mb-3">
+            <label for="Thalach" class="form-label">Thalach</label>
+            <input type="number" class="form-control" name="Thalach" value="160" id="Thalach" placeholder="Input number">
+          </div>
+          <div class="mb-3">
+            <label for="Oldpeak" class="form-label">Oldpeak</label>
+            <input type="number" class="form-control" name="Oldpeak" value="1.6" id="Oldpeak" placeholder="Input number">
+          </div>
+          <div class="mb-3">
+            <label for="Slope_of_ST" class="form-label">Slope ST</label>
+            <select class="form-select" name="Slope_of_ST" aria-label="Default select example">
+              <option>Select One</option>
+              <option value="1" selected>upsloping</option>
+              <option value="2">flat</option>
+              <option value="3">downsloping</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="Coronary_Artery" class="form-label">Coronary artery : (number of major vessels (0-3) colored by flourosopy)</label>
+            <select class="form-select" name="Coronary_Artery" aria-label="Default select example">
+              <option>Select One</option>
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2" selected>2</option>
+              <option value="3">3</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="Thallium" class="form-label">Thallium</label>
+            <select class="form-select" name="Thallium" aria-label="Default select example">
+              <option>Select One</option>
+              <option value="3" selected>normal</option>
+              <option value="6">fixed defect</option>
+              <option value="7">reversable defect</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="Pregnancies" class="form-label">Pregnancies</label>
+            <input type="number" class="form-control" name="Pregnancies" value="8" id="Pregnancies" placeholder="Input number">
+          </div>
+          <div class="mb-3">
+            <label for="Glucose" class="form-label">Glucose</label>
+            <input type="number" class="form-control" name="Glucose" value="85" id="Glucose" placeholder="Input number">
+          </div>
+          <div class="mb-3">
+            <label for="Blood_Pressure" class="form-label">Blood Pressure</label>
+            <input type="number" class="form-control" name="Blood_Pressure" value="70" id="Blood_Pressure" placeholder="Input number">
+          </div>
+          <div class="mb-3">
+            <label for="Skin_of_Thickness" class="form-label">Skin of Thicknes</label>
+            <input type="number" class="form-control" name="Skin_of_Thickness" value="35" id="Skin_of_Thickness" placeholder="Input number">
+          </div>
+          <div class="mb-3">
+            <label for="Insulin" class="form-label">Insulin</label>
+            <input type="number" class="form-control" name="Insulin" value="0" id="Insulin" placeholder="Input number">
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+        <legend>Checking If Yes</legend>
+      </div>
+      <div class="radio border p-3 d-md-flex gap-3 flex-sm-row flex-wrap justify-content-center">
+        <div class="form-check">
+          <input checked class="form-check-input" type="checkbox" name="FBS_Over_120" value="1" id="FBS_Over_120">
+          <label class="form-check-label" for="FBS_Over_120">
+            fbs :  > 120 mg/dl ?
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="Hypertension" value="1" id="Hypertension">
+          <label class="form-check-label" for="Hypertension">
+            Hypertension
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="Heart_desease" value="1" id="Heart_desease">
+          <label class="form-check-label" for="Heart_desease">
+            Heart Desease
+          </label>
+        </div>
+        <div class="form-check">
+          <input checked class="form-check-input" type="checkbox" name="Ever_Married" value="1" id="Ever_Married">
+          <label class="form-check-label" for="Ever_Married">
+            Ever merried
+          </label>
+        </div>
+        <div class="form-check">
+          <input checked class="form-check-input" type="checkbox" name="Exercise_Angina" value="1" id="Exercise_Angina">
+          <label class="form-check-label" for="Exercise_Angina">
+            Exercise angina
+          </label>
+        </div>
+        <div class="form-check">
+          <input checked class="form-check-input" type="checkbox" name="Alcohol_Consuming" value="1" id="Alcohol_Consuming">
+          <label class="form-check-label" for="Alcohol_Consuming">
+            Alcohol Consuming
+          </label>
+        </div>
+        <div class="form-check">
+          <input  class="form-check-input" type="checkbox" name="Coughing" value="1" id="Coughing">
+          <label class="form-check-label" for="Coughing">
+            Coughing
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="Shortness_of_Breath" value="1" id="Shortness_of_Breath">
+          <label class="form-check-label" for="Shortness_of_Breath">
+            Shortness of breath
+          </label>
+        </div>
+        <div class="form-check">
+          <input checked class="form-check-input" type="checkbox" name="Yellow_Fingers" value="1" id="Yellow_Fingers">
+          <label class="form-check-label" for="Yellow_Fingers">
+            Yellow Fingers
+          </label>
+        </div>
+        <div class="form-check">
+          <input checked class="form-check-input" type="checkbox" name="Wheezing" value="1" id="Wheezing">
+          <label class="form-check-label" for="Wheezing">
+            Wheezing
+          </label>
+        </div>
+      </div>
+      <div class="text-center my-3">
+        <button type="submit" class="btn btn-primary px-4">START PREDICT</button>
+      </div>
+    </form>
+  </div>
+{% endblock %}

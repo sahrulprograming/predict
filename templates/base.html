@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Predict Disease{% endblock %}</title>
+
+  <!-- Bootstrap 5 -->
+  <link rel="stylesheet" href="{% static 'plugins\bootstrap-5.2.3-dist\css\bootstrap.min.css' %}">
+
+  <!-- Jquery 3.6.3 -->
+  <script src="{% static 'plugins\jquery\jquery-3.6.3.min.js' %}"></script>
+</head>
+    <style>
+        body{
+        	margin:0;
+        	padding:0;
+        	font-family:"arial",heletica,sans-serif;
+        	font-size:12px;
+            background: #2980b9 url('https://static.tumblr.com/03fbbc566b081016810402488936fbae/pqpk3dn/MRSmlzpj3/tumblr_static_bg3.png') repeat 0 0;
+        	-webkit-animation: 10s linear 0s normal none infinite animate;
+        	-moz-animation: 10s linear 0s normal none infinite animate;
+        	-ms-animation: 10s linear 0s normal none infinite animate;
+        	-o-animation: 10s linear 0s normal none infinite animate;
+        	animation: 10s linear 0s normal none infinite animate;
+                
+        }
+        
+        @-webkit-keyframes animate {
+        	from {background-position:0 0;}
+        	to {background-position: 500px 0;}
+        }
+        
+        @-moz-keyframes animate {
+        	from {background-position:0 0;}
+        	to {background-position: 500px 0;}
+        }
+        
+        @-ms-keyframes animate {
+        	from {background-position:0 0;}
+        	to {background-position: 500px 0;}
+        }
+        
+        @-o-keyframes animate {
+        	from {background-position:0 0;}
+        	to {background-position: 500px 0;}
+        }
+        
+        @keyframes animate {
+        	from {background-position:0 0;}
+        	to {background-position: 500px 0;}
+        }
+    </style>
+<body>
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="/">Perdict</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link bg-dark text-light px-3 fw-bold" aria-current="page" href="/predict">Mulai Prediksi</a>
+            </li>
+          </ul>
+      </div>
+    </nav>
+    {% block content %}
+    {% endblock content %}
+    <script src="{% static 'plugins\bootstrap-5.2.3-dist\js\bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>
