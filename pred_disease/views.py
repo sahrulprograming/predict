@@ -46,14 +46,9 @@ def output(request):
         for col in data:
             newData[col] = newData[col].astype(data[col].dtype)
         predictDisease = model_ML(newData)
-        # X_test = np.append(X, newData.values, axis=0)
-        # y_test = np.append(Y, predictDisease, axis=0)
-        # predict = model_ML(X_test)
-        # f1 = f1_score(y_test, predict, average=None)
         html_class = []
         tingkat_kesakitan = []
         penyakit = ["jantung", "stroke", "cancer", "diabetes"]
-        # persen = []
         for i in range(0, len(penyakit)):
             if predictDisease[0] == i + 1:
                 html_class.append("text-danger")
@@ -61,39 +56,24 @@ def output(request):
             else:
                 html_class.append("text-success")
                 tingkat_kesakitan.append("RENDAH")
-            # persen.append(f"{round((f1[i] + f1[0])/2*100, 2)}%")
-            # if f1[i] >= 0.7:
-            #     html_class.append("text-danger")
-            #     tingkat_kesakitan.append("TINGGI")
-            # elif f1[i] >= 0.5:
-            #     html_class.append("text-warning")
-            #     tingkat_kesakitan.append("SEDANG")
-            # else:
-            #     html_class.append("text-success")
-            #     tingkat_kesakitan.append("RENDAH")
         output = {
-            "countData": len(tingkat_kesakitan),
             "output": [
                 {
-                    # "persen": persen[0],
                     "penyakit": penyakit[0],
                     "tingkat_kesakitan": tingkat_kesakitan[0],
                     "html_class": html_class[0],
                 },
                 {
-                    # "persen": persen[1],
                     "penyakit": penyakit[1],
                     "tingkat_kesakitan": tingkat_kesakitan[1],
                     "html_class": html_class[1],
                 },
                 {
-                    # "persen": persen[2],
                     "penyakit": penyakit[2],
                     "tingkat_kesakitan": tingkat_kesakitan[2],
                     "html_class": html_class[2],
                 },
                 {
-                    # "persen": persen[3],
                     "penyakit": penyakit[3],
                     "tingkat_kesakitan": tingkat_kesakitan[3],
                     "html_class": html_class[3],
